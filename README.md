@@ -7,4 +7,4 @@
 3) Install [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 4) Clone or download the repo (or just the `crunchyroll.py` file)
 5) You might have to `pip install requests`
-6) Open a terminal, go to the directory `crunchyroll.py` is in, and run `python crunchyroll.py`
+6) Open cmd, go to the directory `crunchyroll.py` is in, and run `python crunchyroll.py`
