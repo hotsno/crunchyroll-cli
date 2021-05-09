@@ -1,5 +1,5 @@
 # Crunchyroll CLI
-### Search for anime through a CLI and play the Crunchyroll stream through mpv
+### Search for anime through a CLI and play the Crunchyroll stream with mpv
 
 ## Instructions
 1) Install [mpv](https://github.com/mpv-player/mpv) and add it to your PATH
