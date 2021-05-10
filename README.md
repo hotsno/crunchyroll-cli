@@ -8,3 +8,4 @@
 4) Clone or download the repo (or just the `crunchyroll.py` file)
 5) You might have to `pip install requests`
 6) Open cmd, go to the directory `crunchyroll.py` is in, and run `python crunchyroll.py`
+![Example](https://media.discordapp.net/attachments/840944465236459521/841449311241895946/unknown.png?width=2328&height=1310)
