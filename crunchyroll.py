@@ -2,6 +2,7 @@ import requests
 import json
 import os
 
+printSpacing = "\n-----------------------------------\n"
 
 def anilistCall(query, variables):
     url = 'https://graphql.anilist.co'
@@ -10,22 +11,17 @@ def anilistCall(query, variables):
     return response.json()
 
 
-def printSpacing():
-    print("\n-----------------------------------\n")
-
-
 def numberChoice():
     choice = input("Enter number: ")
-    printSpacing()
+    print(printSpacing)
     return choice
 
 
 def animeSearch():
     variables = {}
-    printSpacing()
+    print(printSpacing)
     searchTerm = input("Search for an anime: ")
     variables["search"] = searchTerm
-
     query = '''
     query ($search: String) {
       Page(page: 1, perPage: 10) {
@@ -44,13 +40,13 @@ def animeSearch():
     }
     '''
     results = anilistCall(query, variables)
-    printSpacing()
+    print(printSpacing)
     print("SEARCH RESULTS:")
     i = 1
     for anime in results["data"]["Page"]["media"]:
         print(str(i) + ": " + anime["title"]["romaji"])
         i += 1
-    printSpacing()
+    print(printSpacing)
     return results
 
 
@@ -60,11 +56,11 @@ def listEpisodes(searchResults, animeChoice):
     for episode in searchResults["data"]["Page"]["media"][int(animeChoice) - 1]["streamingEpisodes"]:
         print(str(i) + ": " + episode["title"])
         i += 1
-    printSpacing()
+    print(printSpacing)
 
 
 def playEpisode(searchResults, animeChoice, episodeChoice):
-    print("Please wait... (10-15 secs)")
+    print("Please wait... (5-10 secs)")
     os.system("mpv --slang=enUS " + searchResults["data"]["Page"]["media"][int(
         animeChoice) - 1]["streamingEpisodes"][int(episodeChoice) - 1]["url"])
 
