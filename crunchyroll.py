@@ -53,20 +53,31 @@ def animeSearch():
 def listEpisodes(searchResults, animeChoice):
     i = 1
     print("AVAILABLE EPISODES:")
-    for episode in searchResults["data"]["Page"]["media"][int(animeChoice) - 1]["streamingEpisodes"]:
+    streamingEpisodes = searchResults["data"]["Page"]["media"][int(animeChoice) - 1]["streamingEpisodes"][::-1] # the [::1] reverses the list
+    for episode in streamingEpisodes:
         print(str(i) + ": " + episode["title"])
         i += 1
     print(printSpacing)
+    return streamingEpisodes
 
 
-def playEpisode(searchResults, animeChoice, episodeChoice):
-    print("Please wait... (5-10 secs)")
-    os.system("mpv --slang=enUS " + searchResults["data"]["Page"]["media"][int(
-        animeChoice) - 1]["streamingEpisodes"][int(episodeChoice) - 1]["url"])
+def playEpisode(streamingEpisodes, episodeChoice):
+    
+    os.system("mpv --slang=enUS --no-terminal " + streamingEpisodes[int(episodeChoice) - 1]["url"])
 
 
 searchResults = animeSearch()
 animeChoice = numberChoice()
-listEpisodes(searchResults, animeChoice)
+streamingEpisodes = listEpisodes(searchResults, animeChoice)
 episodeChoice = numberChoice()
-playEpisode(searchResults, animeChoice, episodeChoice)
+playEpisode(streamingEpisodes, episodeChoice)
+
+continueChoosing = True
+while(continueChoosing):
+  print("Type \"q\" to quit\n")
+  episodeChoice = numberChoice()
+  if(episodeChoice != "q"):
+    playEpisode(searchResults, animeChoice, episodeChoice)
+  else:
+    continueChoosing = False
+    print("See you next time! o/")
