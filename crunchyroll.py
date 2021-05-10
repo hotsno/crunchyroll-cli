@@ -77,7 +77,8 @@ while(continueChoosing):
   print("Type \"q\" to quit\n")
   episodeChoice = numberChoice()
   if(episodeChoice != "q"):
-    playEpisode(searchResults, animeChoice, episodeChoice)
+    playEpisode(streamingEpisodes, episodeChoice)
   else:
     continueChoosing = False
     print("See you next time! o/")
+    print(printSpacing)
