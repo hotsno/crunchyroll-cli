@@ -11,4 +11,4 @@
 
 ## Screenshots
 
-![Screenshot]https://media.discordapp.net/attachments/840944465236459521/841510529281687552/unknown.png?width=656&height=1309)
+![Screenshot](https://media.discordapp.net/attachments/840944465236459521/841510529281687552/unknown.png?width=656&height=1309)
